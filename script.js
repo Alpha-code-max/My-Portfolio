@@ -1,19 +1,18 @@
-const sr = ScrollReveal ({
-    distance: '35px',
-    duration: 2400,
-    reset: true
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', function(){
+    header.classList.toggle('sticky', window.scrollY > 120);
 });
 
-sr.reveal('.logo', {delay:210, origin:'left'});
-sr.reveal('.navlist', {delay:310, origin:'top'});
-sr.reveal('.top-btn', {delay:410, origin:'right'});
-sr.reveal('.main-content h4', {delay:510, origin:'top'});
-sr.reveal('.main-content h1', {delay:610, origin:'left'});
+let menu = document.querySelector('#menu-icon');
+let navlist = document.querySelector('.navlist');
 
-sr.reveal('.main-content p', {delay:710, origin:'right'});
-sr.reveal('.socials', {delay:810, origin:'left'});
+menu.onclick = () => {
+    menu.classList.toggle('bx-x');
+    navlist.classList.toggle('active');
+}
 
-sr.reveal('.main-btn', {delay:910, origin:'top '});
-
-sr.reveal('.bottom', {delay:1010, origin:'bottom'});
-
+window.onscroll = () => {
+    menu.classList.remove('bx-x');
+    navlist.classList.remove('active');
+}
